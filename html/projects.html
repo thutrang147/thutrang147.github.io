@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thu Trang Nguyen - Portfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header with name on left, navigation on right -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-logo">
+                <a href="../index.html">Thu Trang Nguyen</a>
+            </div>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="../images/cv.pdf" target="_blank">CV</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Projects content -->
+    <main>
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projects</h2>
+                
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card" data-project="project1">
+                        <div class="project-image-container">
+                            <img src="../images/project1.png" alt="Online Course Management System">
+                            <div class="info-overlay">
+                                <button class="info-button" onclick="openProjectModal('project1')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-title">
+                            <h3>Online Course Management System</h3>
+                        </div>
+                    </div>
+                    
+                    <!-- Project 2 -->
+                    <div class="project-card" data-project="project2">
+                        <div class="project-image-container">
+                            <img src="../images/project2.png" alt="Vietnam F&B Industry Analysis">
+                            <div class="info-overlay">
+                                <button class="info-button" onclick="openProjectModal('project2')">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="project-title">
+                            <h3>Vietnam F&B Industry Analysis</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modals -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeProjectModal()">&times;</span>
+            
+            <!-- Project 1 Details -->
+            <div id="project1Details" class="project-details">
+                <h2>Online Course Management System</h2>
+                
+                <div class="project-meta">
+                    <div class="meta-section">
+                        <h3>Tech Stack</h3>
+                        <p>Python, MySQL, HTML, Flask</p>
+                    </div>
+                    
+                    <div class="meta-section">
+                        <h3>Project Links</h3>
+                        <p>
+                            <a href="https://github.com/thutrang147/course-management" target="_blank" class="btn">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <h3>Overview</h3>
+                    <p>Group Project | Team of 4 members | April 2025 - May 2025</p>
+                    
+                    <h3>Details</h3>
+                    <ul>
+                        <li>- Designed and implemented a full-stack course management system for students and instructors</li>
+                        <li>- Developed responsive web UI and backend using Python (Flask), connected to MySQL database</li>
+                        <li>- Created database schema, implemented CRUD functions, and user interactions</li>
+                        <li>- Practiced effective collaboration using Git and GitHub for version control</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Project 2 Details -->
+            <div id="project2Details" class="project-details">
+                <h2>Vietnam F&B Industry Performance & Growth Analysis</h2>
+                
+                <div class="project-meta">
+                    <div class="meta-section">
+                        <h3>Tech Stack</h3>
+                        <p>Python, Excel, Power BI, Tableau</p>
+                    </div>
+                    
+                    <div class="meta-section">
+                        <h3>Project Links</h3>
+                        <p>
+                            <a href="https://drive.google.com/file/d/1qBSH3jOOI8lp3SqJmLmD78C7ta-fWyAj/view?usp=sharing" target="_blank" class="btn">
+                                <i class="fas fa-file-pdf"></i> Preview
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="project-description">
+                    <h3>Overview</h3>
+                    <p>G'Contest | Team of 3 members | May 2025</p>
+                    
+                    <h3>Details</h3>
+                    <ul>
+                        <li>- Analyzed the performance and growth potential of Vietnam's F&B industry (2019–2023)</li>
+                        <li>- Segmented over 1,000 businesses into "High Potential" and "Needs Support" based on CAGR, profitability, and cash flow</li>
+                        <li>- Visualized key financial trends pre- and post-COVID with Tableau dashboards</li>
+                        <li>- Conducted financial ratio analysis to identify cost efficiency opportunities</li>
+                        <li>- Delivered strategic recommendations for growth and operational optimization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Project Modal Functions
+        function openProjectModal(projectId) {
+            const modal = document.getElementById('projectModal');
+            const allDetails = document.querySelectorAll('.project-details');
+            
+            // Hide all project details first
+            allDetails.forEach(detail => {
+                detail.style.display = 'none';
+            });
+            
+            // Show the selected project details
+            document.getElementById(projectId + 'Details').style.display = 'block';
+            
+            // Show modal
+            modal.style.display = 'flex';
+            
+            // Prevent scrolling on body
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeProjectModal() {
+            document.getElementById('projectModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal if user clicks outside the content
+        window.onclick = function(event) {
+            const modal = document.getElementById('projectModal');
+            if (event.target === modal) {
+                closeProjectModal();
+            }
+        }
+    </script>
+</body>
+</html>
