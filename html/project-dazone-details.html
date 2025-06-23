@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Customer Loyalty Analysis - Thu Trang Nguyen</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header with name on left, navigation on right -->
+    <header class="site-header">
+        <div class="container">
+            <div class="site-logo">
+                <a href="../index.html">Thu Trang Nguyen</a>
+            </div>
+            <nav class="site-nav">
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="experience.html">Experience</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="../images/cv.pdf" target="_blank">CV</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project details content -->
+    <main>
+        <section class="section project-details-page">
+            <div class="container">
+                <div class="project-header">
+                    <h1>E-commerce Customer Loyalty & Deal Hunter Analysis</h1>
+                    <div class="project-meta-banner">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar"></i>
+                            <span>April 2025</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-users"></i>
+                            <span>Team of 3</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-code"></i>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-content">
+                    <h2>Project Overview</h2>
+                    <p>This project was undertaken as part of DAZONE 2025, a premier data analytics competition sponsored by Viettel. The core objective was to analyze user behavior on an e-commerce platform, specifically to understand the differences between "Deal Hunters" and users with potential for long-term loyalty. Through this analysis, we aimed to provide insights that would enable e-commerce merchants to optimize marketing strategies, increase customer retention, and foster sustainable business growth.</p>
+                    
+                    <h2>Tech Stack</h2>
+                    <ul class="tech-list">
+                        <li><strong>Programming Languages:</strong> Python (Pandas, NumPy, Matplotlib, Seaborn)</li>
+                        <li><strong>Development Environment:</strong> Google Colab / Kaggle Notebooks</li>
+                    </ul>
+                    
+                    <h2>Project Links</h2>
+                    <div class="project-links">
+                        <a href="https://drive.google.com/file/d/1pA4O0DZ8fnTU60PjnrjV5epuM73yG_xT/view?usp=sharing" target="_blank" class="btn">
+                            <i class="fas fa-file-pdf"></i> PDF Report
+                        </a>
+                        <a href="https://colab.research.google.com/drive/1Yjn9M84XaqoT5bbPtsuEkLJscVHXGsG0#scrollTo=NHC1nfEG3QAZ" target="_blank" class="btn">
+                            <i class="fas fa-code"></i> Google Colab Notebook
+                        </a>
+                    </div>
+                    
+                    <h2>1. Context & Business Challenge</h2>
+                    <p>As participants in DAZONE 2025, our team tackled a critical challenge facing e-commerce platforms: the <strong>high cost and low ROI of attracting "Deal Hunters."</strong> These users are primarily driven by promotions, making a single purchase and rarely returning, which drains marketing budgets without building sustainable customer bases. Our goal was to <strong>dissect user behavior to differentiate "Deal Hunters" from users with the potential to become loyal customers</strong>, providing data-driven insights to optimize marketing spend and foster long-term growth.</p>
+
+                    <h2>2. Data Acquisition, Cleaning & Preparation</h2>
+                    <p>My core contribution involved transforming a raw, complex e-commerce dataset of <strong>over 50 million rows</strong> into a clean, analytical-ready format using Python. The initial data presented several challenges, as identified during initial exploration:</p>
+
+                    <ul>
+                        <li><strong>Missing Values:</strong> Significant missing data in <code>user_id</code> (5590 entries) and <code>merchant_id</code> (5498 entries).</li>
+                        
+                        <li><strong>Inconsistent Data Types:</strong> <code>user_id</code>, <code>merchant_id</code>, and <code>label</code> (potential loyalty indicator) were initially loaded as <code>float64</code>.</li>
+                        
+                        <li><strong>Ambiguous Target Variable:</strong> The <code>label</code> column contained <code>-1</code> (4778 rows) with unclear meaning, alongside <code>0</code> and <code>1</code>.</li>
+                        
+                        <li><strong>Class Imbalance:</strong> After handling ambiguous labels, <code>label=1</code> represented only approximately 14.3% of the dataset.</li>
+                    </ul>
+
+                    <p>My approach involved <strong>strategically removing rows</strong> with missing critical IDs and ambiguous <code>-1</code> labels to ensure data integrity. I performed necessary type conversions and engineered crucial features to capture loyalty and deal-hunting behaviors, including:</p>
+
+                    <ul>
+                        <li><strong>Interaction Volume & Depth:</strong> Total clicks, views, add-to-wishlist actions, and distinct products/categories viewed.</li>
+                        
+                        <li><strong>Purchase Context:</strong> Indicators of promotional vs. non-promotional purchases.</li>
+                        
+                        <li><strong>Temporal Features:</strong> Metrics like session duration and time between interactions.</li>
+                    </ul>
+
+                    <p>This meticulous data preparation was fundamental to extracting reliable and actionable insights.</p>
+
+                    <h2>3. Key Insights & User Segmentation</h2>
+                    <p>Our comprehensive exploratory data analysis revealed profound insights, enabling a critical segmentation of users:</p>
+
+                    <h4><i class="fas fa-tags"></i> The "Deal Hunter" Profile</h4>
+                    <p>These users exhibit highly transactional and often short-lived behavior:</p>
+                    <ul>
+                        <li><strong>High Click-to-Purchase Ratio on Deals:</strong> They tend to have a higher direct click-to-purchase conversion rate specifically for promotional items within a merchant's store.</li>
+                        <li><strong>Limited Exploration:</strong> Their engagement is typically focused on finding and acquiring deals, with less time spent browsing or exploring diverse product categories within the same store.</li>
+                        <li><strong>Low Return Frequency:</strong> Deal Hunters primarily make purchases during promotional periods and rarely return to the same merchant or engage in repeat purchases once the promotion ends.</li>
+                    </ul>
+
+                    <p><strong>→ Insight:</strong> While providing immediate, deal-driven conversions, this segment yields low long-term value, posing a significant ROI challenge for marketing spend.</p>
+
+                    <h4><i class="fas fa-award"></i> The "Loyalty Potential" Profile</h4>
+                    <p>In stark contrast, these users demonstrate a more exploratory, nuanced, and sustained interaction pattern:</p>
+                    <ul>
+                        <li><strong>Deeper Engagement & Exploration:</strong> They tend to make a higher number of clicks, view more products across diverse categories, and spend significantly more time browsing within a merchant's store, even if their initial conversion isn't immediate.</li>
+                        <li><strong>Feature Utilization:</strong> They are more likely to engage with features like wishlists and product reviews, indicating a deeper interest beyond a single transaction.</li>
+                        <li><strong>Higher Propensity for Repeat Visits:</strong> Their behaviors signal a greater likelihood of returning to the merchant for future purchases, even outside of heavy promotional periods.</li>
+                    </ul>
+
+                    <p><strong>→ Crucial Insight:</strong> While "Deal Hunters" show a higher immediate click-to-purchase ratio for specific deals, this does not correlate with greater long-term customer value. Users with loyalty potential, despite potentially lower immediate conversion on their first visit, engage in behaviors indicative of deeper interest and future commitment, highlighting their potential for sustained engagement and higher Customer Lifetime Value.</p>
+
+                    <h2>4. Proposed Predictive Approach (For Future Development)</h2>
+                    <p>While this round focused on understanding and insight generation, we outlined a robust framework for future predictive modeling. The aim would be to <strong>predict the probability of a new user making a repeat purchase</strong> from the same merchant within six months. Our proposed model would leverage initial user exploration and interaction behaviors (e.g., clicks, views, wishlist additions, category diversity, session duration) as key predictive features. Contextual variables (purchase time, promotions) and control variables (demographics, device) would also be incorporated. This model would empower merchants to proactively identify and nurture loyalty potential.</p>
+
+                    <h2>5. Lessons Learned & Future Impact</h2>
+                    <p>This project reinforced the power of <strong>deep behavioral analysis</strong> in solving complex business problems, moving beyond simple conversion rates to understand drivers of long-term customer value. The insights derived are directly actionable, empowering e-commerce platforms to refine acquisition strategies, develop targeted retention campaigns, and optimize marketing spend for sustainable growth. This experience further solidified my ability to transform raw, messy data into strategic business insights and lay the groundwork for advanced analytical solutions.</p>
+                    
+                    <div class="back-to-projects">
+                        <a href="projects.html" class="btn"><i class="fas fa-arrow-left"></i> Back to Projects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
