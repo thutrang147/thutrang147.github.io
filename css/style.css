@@ -544,6 +544,37 @@ main {
     margin-bottom: 10px;
 }
 
+/* Refined button style that matches the website theme */
+.btn-highlight {
+    background-color: var(--primary); /* Use the site's primary dark color */
+    color: white; /* White text on dark background for better contrast */
+    padding: 8px 16px;
+    border-radius: 30px; /* Match other UI elements' roundness */
+    font-weight: 500;
+    box-shadow: var(--shadow); /* Use the site's shadow variable */
+    border: none;
+    display: inline-block;
+    transition: var(--transition); /* Use the site's transition variable */
+    margin-left: 5px;
+}
+
+.btn-highlight:hover {
+    background-color: var(--accent); /* Use accent color on hover */
+    transform: translateY(-2px);
+}
+
+.btn-highlight i {
+    margin-right: 5px;
+}
+
+/* Make sure all buttons in project meta have consistent styling */
+.project-meta .btn,
+.project-meta .btn-highlight {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    margin: 5px;
+}
+
 /* Skills Logo Grid */
 .skills-logo-grid {
     display: grid;
@@ -726,22 +757,27 @@ main {
     color: #FFFFFF; /* White icons on dark background */
 }
 
-/* Add to your style.css */
-.fab, .fas {
-    font-family: "Font Awesome 5 Free", "Font Awesome 5 Brands";
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
+/* Fix for tech-list items with better text contrast */
+.tech-list li {
+    background-color: var(--primary);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    list-style-type: none;
+    color: white; /* Add white text color for better contrast */
 }
 
-.fas {
-    font-weight: 900;
+.tech-list li strong {
+    color: white; /* Ensure the bold text is also white */
+    margin-right: 5px;
 }
 
-.fab {
-    font-weight: 400;
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
 }
 
 /* Responsive styles */
@@ -795,4 +831,128 @@ main {
     .contact-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Project details page styles */
+.project-details-page {
+    padding-bottom: 60px;
+}
+
+.project-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.project-header h1 {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+.project-meta-banner {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.meta-item i {
+    color: var(--primary-dark);
+    font-size: 1.2rem;
+}
+
+.project-content {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.project-content h2 {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary);
+}
+
+.project-content h3 {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    font-size: 1.5rem;
+}
+
+.project-content h4, .project-content h5 {
+    margin-top: 25px;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.project-content p {
+    margin-bottom: 20px;
+}
+
+.project-content ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.project-content li {
+    margin-bottom: 10px;
+    position: relative;
+    list-style-type: disc;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+}
+
+.tech-list li {
+    background-color: var(--primary);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    list-style-type: none;
+    color: white; /* Add white text color for better contrast */
+}
+
+.project-links {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin: 30px 0;
+}
+
+.project-links .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.back-to-projects {
+    margin-top: 60px;
+    text-align: center;
+}
+
+/* Highlight "primary" button variant */
+.btn-primary {
+    background-color: var(--primary-dark);
+    color: var(--text-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--accent);
+    color: white;
 }
