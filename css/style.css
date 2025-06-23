@@ -780,6 +780,47 @@ main {
     padding: 0;
 }
 
+/* Add icon colors to make them stand out */
+.fas.fa-industry { color: #5d8aa8; }
+.fas.fa-balance-scale { color: #698b69; }
+.fas.fa-search-dollar { color: #9370db; }
+.fas.fa-money-bill-wave { color: #e67e22; }
+.fas.fa-wrench { color: #7f8c8d; }
+.fas.fa-chart-line { color: #27ae60; }
+.fas.fa-tags { color: #e74c3c; }
+.fas.fa-award { color: #f39c12; }
+.fas.fa-rocket { color: #3498db; }
+.fas.fa-tools { color: #95a5a6; }
+
+/* Add subtle background color to insights */
+p strong:contains("→ Insight"), 
+p strong:contains("→ Key Insight"), 
+p strong:contains("→ Crucial Insight") {
+    color: #2980b9;
+}
+
+/* Make key metrics stand out with color */
+strong:contains("~30 Trillion VND"), 
+strong:contains("~35 Trillion VND"),
+strong:contains("80/100"),
+strong:contains("CAGR > 50%"),
+strong:contains("negative in 2020-2021"),
+strong:contains("positive levels in 2022-2023") {
+    color: #3498db;
+}
+
+/* Make negative metrics red */
+strong:contains("deeply negative") {
+    color: #e74c3c;
+}
+
+/* Add subtle background to project-meta-banner */
+.project-meta-banner {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
 /* Responsive styles */
 @media (max-width: 768px) {
   .site-header .container {
